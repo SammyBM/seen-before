@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Seen Before</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div class="brand-mark" aria-hidden="true"><span>↗</span><i></i></div>
+        <div class="brand-copy"><h1>Seen Before</h1><p>Your quiet link memory</p></div>
+        <label class="switch" aria-label="Warn on repeat links">
+          <input id="enabled" type="checkbox" checked>
+          <span class="track" aria-hidden="true"><span></span></span>
+        </label>
+      </header>
+
+      <section class="summary" aria-live="polite">
+        <div><span class="eyebrow">SAVED LINKS</span><strong id="total">—</strong></div>
+        <p>Warn on repeat links</p>
+      </section>
+
+      <section class="history-section" aria-labelledby="recent-title">
+        <div class="section-heading"><h2 id="recent-title">Recently opened</h2><button id="clear" class="text-button" type="button" hidden>Clear history</button></div>
+        <div id="history" class="history" aria-live="polite"></div>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <footer><span class="privacy-dot" aria-hidden="true"></span>Private to this browser · stored locally</footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

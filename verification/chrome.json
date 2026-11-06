@@ -1,0 +1,25 @@
+{
+  "browser": "155.0.8059.84",
+  "cdpInstall": true,
+  "passed": 17,
+  "scenarios": [
+    "extension installs and popup starts empty",
+    "first click navigates and persists one record",
+    "repeat warns before navigation; Cancel preserves count and focus",
+    "Open anyway navigates and increments the repeat count",
+    "fragment variants warn; query variants are distinct",
+    "same-page anchors and downloads are excluded",
+    "target blank first and repeat preserve new tabs",
+    "Ctrl click first and repeat preserve new tabs",
+    "Shift click first and repeat preserve a separate window",
+    "middle click first and repeat preserve new tabs",
+    "keyboard activation and Escape cancellation",
+    "dynamic links, open shadow roots and frames are tracked",
+    "SPA click handlers run once with native route behavior",
+    "paused extension allows repeated links without recording",
+    "popup history, toggle, remove and clear controls work",
+    "history survives a full browser restart",
+    "extension reload fails open on an already-open page"
+  ],
+  "errors": []
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seen Before demo page</title>
+  <style>
+    :root{font:16px/1.5 system-ui,sans-serif;color:#18304d;background:#f7faff}body{max-width:760px;margin:40px auto;padding:0 22px}h1{font-size:28px;line-height:1.2}p{color:#526579}.panel{margin:18px 0;padding:16px 18px;background:#fff;border:1px solid #dce8f3;border-radius:12px}ul{padding-left:20px}li{margin:9px 0}a{color:#334ebd}button{font:inherit;padding:7px 11px;border:1px solid #cbd8e5;border-radius:8px;background:#eff6ff;color:#18304d;cursor:pointer}.note{font-size:13px;color:#526579}code{background:#edf3f9;padding:2px 5px;border-radius:4px}#events{max-height:120px;overflow:auto;font:12px/1.4 ui-monospace,monospace;white-space:pre-wrap;background:#f5f8fb;padding:9px;border-radius:7px}
+  </style>
+</head>
+<body>
+  <h1>Seen Before test page</h1>
+  <p>Use these links to try the extension. Click once, return here, then click the same link again to see the warning.</p>
+  <section class="panel">
+    <h2>Navigation cases</h2>
+    <ul>
+      <li><a href="/destination.html">Same tab: destination page</a></li>
+      <li><a href="/destination.html?from=demo" target="_blank">New tab: query string kept</a></li>
+      <li><a href="/destination.html#top">Fragment-only jump on this page path</a></li>
+      <li><a href="data:text/plain,not%20a%20web%20link">Unsupported data URL (should not be intercepted)</a></li>
+      <li><a href="/sample.txt" download>Download (should not be intercepted)</a></li>
+      <li><a href="https://example.org/seen-before-demo" target="_blank">External HTTPS link</a></li>
+    </ul>
+  </section>
+  <section class="panel">
+    <h2>Dynamic link and page event check</h2>
+    <p><button id="add-link" type="button">Add a link</button></p>
+    <div id="dynamic"></div>
+    <p class="note">The page counts clicks it receives. For a first-seen link, its click handler should run once after Seen Before's check completes.</p>
+    <p>Page click events received: <strong id="count">0</strong></p>
+    <div id="events" aria-live="polite">No page click events yet.</div>
+  </section>
+  <section class="panel">
+    <h2>Input checks</h2>
+    <ul>
+      <li>Focus a link and press Enter.</li>
+      <li>Try Ctrl-click on Windows/Linux or Command-click on macOS.</li>
+      <li>Try Shift-click and middle-click; test the repeated warning too.</li>
+      <li>Right-click a link and open it from the browser menu. That visit should not be tracked.</li>
+    </ul>
+  </section>
+  <div id="top"></div>
+  <script>
+    let received = 0;
+    document.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        received += 1;
+        document.getElementById('count').textContent = String(received);
+        document.getElementById('events').textContent = `${event.target.closest('a').textContent.trim()} · ${event.ctrlKey ? 'Ctrl' : ''}${event.metaKey ? 'Command' : ''}${event.shiftKey ? 'Shift' : ''} click`;
+      }
+    });
+    document.getElementById('add-link').addEventListener('click', () => {
+      const anchor = document.createElement('a');
+      anchor.href = '/destination.html?dynamic=1';
+      anchor.textContent = 'Dynamically added destination link';
+      const holder = document.getElementById('dynamic');
+      holder.replaceChildren(anchor);
+    });
+  </script>
+</body>
+</html>

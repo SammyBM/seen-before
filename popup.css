@@ -1,0 +1,53 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #18304d;
+  background: #fff;
+  font-synthesis: none;
+}
+* { box-sizing: border-box; }
+body { width: 380px; min-height: 300px; margin: 0; background: #fff; }
+button, input { font: inherit; }
+button:focus-visible, input:focus-visible + .track { outline: 3px solid #9db4ff; outline-offset: 3px; }
+.app { padding: 20px 20px 14px; }
+.topbar { display: flex; align-items: center; gap: 11px; }
+.brand-mark { position: relative; width: 42px; height: 42px; border-radius: 13px; background: #eff6ff; display: grid; place-items: center; color: #334ebd; font-size: 23px; font-weight: 650; }
+.brand-mark span { transform: translate(-1px, -2px); }
+.brand-mark i { position: absolute; width: 12px; height: 8px; right: 8px; bottom: 8px; border: 2px solid #334ebd; border-radius: 5px; background: #eff6ff; }
+.brand-copy { flex: 1; min-width: 0; }
+h1 { margin: 0; font-size: 17px; line-height: 1.3; letter-spacing: -.02em; font-weight: 700; }
+.brand-copy p { margin: 2px 0 0; color: #526579; font-size: 12px; }
+.switch { position: relative; display: inline-flex; width: 42px; height: 25px; cursor: pointer; flex: 0 0 auto; }
+.switch input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.track { display: block; width: 42px; height: 25px; padding: 3px; border-radius: 99px; background: #bdc9d5; transition: background .16s ease; }
+.track span { display: block; width: 19px; height: 19px; background: white; border-radius: 50%; box-shadow: 0 1px 3px #18304d33; transition: transform .16s ease; }
+.switch input:checked + .track { background: #334ebd; }
+.switch input:checked + .track span { transform: translateX(17px); }
+.switch input:focus-visible + .track { outline: 3px solid #9db4ff; outline-offset: 3px; }
+.summary { display: flex; align-items: center; justify-content: space-between; background: #eff6ff; border: 1px solid #e1ecfa; border-radius: 12px; padding: 12px 14px; margin: 18px 0 20px; }
+.summary div { display: flex; flex-direction: column; gap: 2px; }
+.eyebrow { color: #526579; font-size: 9px; font-weight: 750; letter-spacing: .11em; }
+.summary strong { font-size: 21px; line-height: 1; }
+.summary p { margin: 0; color: #526579; font-size: 11px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; min-height: 24px; }
+h2 { margin: 0; font-size: 13px; font-weight: 700; }
+.text-button { padding: 3px 0 3px 8px; border: 0; color: #526579; background: transparent; font-size: 11px; cursor: pointer; }
+.text-button:hover { color: #334ebd; text-decoration: underline; }
+.history { margin-top: 8px; }
+.row { display: flex; align-items: center; gap: 9px; min-height: 54px; padding: 8px 3px; border-bottom: 1px solid #edf1f5; }
+.row:last-child { border-bottom: 0; }
+.row-mark { width: 30px; height: 30px; display: grid; place-items: center; flex: 0 0 auto; color: #334ebd; background: #f2f6fb; border-radius: 9px; font-size: 15px; }
+.row-main { min-width: 0; flex: 1; }
+.row-url { display: block; overflow: hidden; color: #18304d; font-size: 12px; font-weight: 620; text-overflow: ellipsis; white-space: nowrap; }
+.row-meta { display: block; margin-top: 3px; color: #718195; font-size: 10px; }
+.remove { width: 28px; height: 28px; flex: 0 0 auto; border: 0; border-radius: 7px; background: transparent; color: #718195; font-size: 17px; cursor: pointer; }
+.remove:hover { background: #eff6ff; color: #334ebd; }
+.empty { padding: 17px 10px 19px; color: #526579; text-align: center; font-size: 12px; line-height: 1.5; }
+.empty strong { display: block; margin-bottom: 4px; color: #18304d; font-size: 12px; }
+.confirm { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; padding: 9px 10px; border: 1px solid #f1d89d; border-radius: 9px; background: #fff9e9; color: #72551c; font-size: 11px; }
+.confirm-actions { display: flex; gap: 6px; }
+.confirm button { padding: 5px 8px; border: 1px solid #e7d5a9; border-radius: 6px; background: #fff; color: #72551c; font-size: 10px; cursor: pointer; }
+.confirm button.primary { border-color: #e5a52c; background: #e5a52c; color: #fff; font-weight: 650; }
+.status { min-height: 16px; margin: 5px 0 0; color: #9b6800; font-size: 10px; }
+footer { display: flex; align-items: center; justify-content: center; gap: 6px; padding-top: 10px; border-top: 1px solid #edf1f5; color: #718195; font-size: 10px; }
+.privacy-dot { width: 6px; height: 6px; border-radius: 50%; background: #72a78b; }

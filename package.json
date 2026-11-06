@@ -1,0 +1,9 @@
+{
+  "name": "seen-before",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --experimental-test-isolation=none --experimental-test-coverage --test-coverage-exclude='tests/**' tests/*.test.js",
+    "test:browser": "node tests/browser.mjs"
+  }
+}
